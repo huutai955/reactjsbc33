@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import ChangeCarColor from './ChangeCarColor';
 
 export default class StateDemo2 extends Component {
     state = {
@@ -18,7 +19,7 @@ export default class StateDemo2 extends Component {
 
     render() {
         return (
-            <div>
+            <div className='container'>
                 <h3>Ví dụ 1: Tăng giảm font-size của đoạn văn bản</h3>
                 <p style={{ fontSize: this.state.fSize }}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore qui aliquam corporis saepe quos voluptas blanditiis, aperiam, explicabo quam, doloribus ex? Aperiam sapiente soluta quisquam ipsa, animi nihil asperiores, hic beatae et quam eligendi optio suscipit delectus quae? Sit possimus quia quaerat maxime rem, laborum placeat. Animi doloribus, iure eligendi deserunt facilis rem nulla, id ipsa quaerat nam, architecto modi.</p>
                 <button className='mx-2 btn btn-dark' onClick={() => {
@@ -55,6 +56,11 @@ export default class StateDemo2 extends Component {
                         Change</button>
                     </div>
                 </div>
+
+
+                <hr />
+
+                <ChangeCarColor />
             </div>
         )
     }
