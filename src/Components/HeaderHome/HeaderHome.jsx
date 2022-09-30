@@ -27,6 +27,9 @@ export default class HeaderHome extends Component {
                             <li className="nav-item">
                                 <NavLink className="nav-link" to="form">Form</NavLink>
                             </li>
+                            <li className="nav-item">
+                                <NavLink className="nav-link" to="reactlifecycle">ReactLifeCycle</NavLink>
+                            </li>
                         </ul>
                         <form className="d-flex">
                             <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />

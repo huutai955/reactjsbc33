@@ -9,6 +9,7 @@ import Detail from './pages/Detail.jsx';
 import Register from './pages/Register.jsx';
 import Page404 from './pages/Page404.jsx';
 import ReactForm from './pages/ReactForm.jsx';
+import ReactLifeCycle from './pages/ReactLifeCycle/ReactLifeCycle.jsx';
 
 // Nếu ta dùng thẻ a để chuyển trang thì nó sẽ mất đi ưu điểm của
 // react là load lại trang nhanh vì thế trong react ta sẽ thay thế 
@@ -25,6 +26,7 @@ root.render(
                 <Route path='detail' element={<Detail />}></Route>
                 <Route path='register' element={<Register />}></Route>
                 <Route path='form' element={<ReactForm />}></Route>
+                <Route path='reactlifecycle' element={<ReactLifeCycle />}></Route>
                 <Route path='*' element={<Navigate to=""/>}></Route>
                 
                 {/* <Route path='*' element={<Page404 />}></Route> */}

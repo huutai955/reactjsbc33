@@ -20,7 +20,7 @@ export default function App() {
   return (
     <div>
       <HeaderHome />
-      <div style={{height:600}}>
+      <div style={{height:900}}>
         <Outlet />
       </div>
       <footer className='bg-dark p-5 text-center text-success'>
