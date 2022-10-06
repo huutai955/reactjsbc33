@@ -28,6 +28,6 @@ export default class ReactLifeCycle extends Component {
 
 
     componentDidMount() {
-
+        console.log('getDerivedStateFromProps')
     }
  }

@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import Tables from '../Components/Tables/Tables';
+import axios from 'axios';
 
 export default class ReactForm extends Component {
   state = {
@@ -89,6 +90,8 @@ export default class ReactForm extends Component {
     // Cập nhật lại giao diện
     this.setState({
       arrProduct: this.state.arrProduct
+    }, () => {
+      this.luuStorage()
     })
   }
 
@@ -112,6 +115,8 @@ export default class ReactForm extends Component {
 
     this.setState({
       arrProduct: arrProduct
+    }, () => {
+      this.luuStorage()
     })
   }
 
@@ -122,6 +127,8 @@ export default class ReactForm extends Component {
 
     this.setState({
       arrProduct: this.state.arrProduct
+    }, () => {
+      this.luuStorage()
     })
   }
 
@@ -129,6 +136,19 @@ export default class ReactForm extends Component {
     this.setState({
       values: prod
     })
+  }
+
+  luuStorage = () => {
+    let arrProductStorage = JSON.stringify(this.state.arrProduct);
+    localStorage.setItem('arrProduct', arrProductStorage)
+  }
+
+  layStorage = () => {
+    if(localStorage.getItem('arrProduct')) {
+      let arrProductStorage = JSON.parse(localStorage.getItem('arrProduct'));
+      return arrProductStorage
+    }
+    return [];
   }
 
   render() {
@@ -190,9 +210,41 @@ export default class ReactForm extends Component {
         </form>
         <Tables arrProduct={this.state.arrProduct} deleteProd={this.deleteProd} editProd={this.editProd} />
       </div>
-
-
-
     )
+  }
+
+  async componentDidMount() {
+    // this.setState({
+    //   arrProduct: this.layStorage()
+    // })
+    // let promise  = axios({
+    //   url: 'https://svcy.myclass.vn/api/Product/GetAll',
+    //   method: 'GET'
+    // });
+
+    // promise.then((result) => {
+    //   this.setState({
+    //     arrProduct: result.data
+    //   }, () => {
+    //     console.log(this.state.arrProduct);
+    //   })
+    // })
+
+    // promise.catch((error) => {
+    //   console.log(error);
+    // })
+
+    try {
+      let result = await axios({
+        url: 'https://svcy.myclass.vn/api/Product/GetAll',
+        method: 'GET'
+      })
+      
+      this.setState({
+        arrProduct: result.data
+      })
+    }catch(error) {
+      console.log(error)
+    }
   }
 }
